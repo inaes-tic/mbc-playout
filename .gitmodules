@@ -1,0 +1,9 @@
+[submodule "mosto"]
+	path = mosto
+	url = https://github.com/inaes-tic/mbc-mosto
+[submodule "caspa"]
+	path = caspa
+	url = https://github.com/inaes-tic/mbc-caspa
+[submodule "common"]
+	path = common
+	url = https://github.com/inaes-tic/mbc-common
