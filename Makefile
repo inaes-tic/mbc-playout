@@ -3,13 +3,20 @@ NODE_CONFIG_DIR=${MBC_CONFIG}
 
 MAKEFLAGS += -j 4
 
-.PHONY: common caspa mosto
+SERVERS = caspa mosto
+COMPONENTS= ${SERVERS} common
+
+.PHONY: common caspa mosto update serve links
 
 all: update serve
+
+update: submodules links
 
 submodules: common caspa mosto
 
 common: common/package.json
+	cd $@; npm install;
+
 caspa: caspa/package.json
 mosto: mosto/package.json
 
@@ -23,19 +30,20 @@ node_modules:
 npm:
 	npm install
 
-links: mosto/node_modules/mbc-common mosto/node_modules/mbc-common
+links: mosto-common caspa-common
+
+mosto-common: common mosto/node_modules/mbc-common
+caspa-common: common caspa/node_modules/mbc-common
 
 %/node_modules:
-	mkdir $@
+	mkdir -p $@
 
 %/node_modules/mbc-common: %/node_modules
-	ln -sf ./common ./$*/node_modules/mbc_common
+	ln -sf ${PWD}/common ${PWD}/$*/node_modules/mbc-common
 	cd $*; npm install;
 
-update: submodules links
-
-%-serve:
-	cd $*; make NODE_CONFIG_DIR=${NODE_CONFIG_DIR} serve
+%-serve: links submodules
+	@cd $*; make NODE_CONFIG_DIR=${NODE_CONFIG_DIR} serve
 
 serve: mosto-serve caspa-serve
 	node server.js
