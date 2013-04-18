@@ -1,6 +1,8 @@
 MBC_CONFIG="${PWD}/common/config"
 NODE_CONFIG_DIR=${MBC_CONFIG}
 
+MAKEFLAGS += -j 4
+
 .PHONY: common caspa mosto
 
 all: update serve
