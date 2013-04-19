@@ -21,8 +21,8 @@ submodules: common caspa mosto
 
 common: common/package.json common/node_modules
 
-common/node_modules:
-	cd $@; npm install;
+%/node_modules:
+	cd $*; npm install;
 
 caspa: caspa/package.json
 mosto: mosto/package.json
@@ -41,9 +41,6 @@ links: mosto-common caspa-common
 
 mosto-common: common mosto/node_modules/mbc-common
 caspa-common: common caspa/node_modules/mbc-common
-
-%/node_modules:
-	mkdir -p $@
 
 %/node_modules/mbc-common: %/node_modules
 	ln -sf ${PWD}/common ${PWD}/$*/node_modules/mbc-common
