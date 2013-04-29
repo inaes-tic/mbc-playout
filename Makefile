@@ -11,21 +11,26 @@ MBC_VARS = \
 	MBC_SCRAPE=${MBC_SCRAPE} \
 	${NULL}
 
+MBC_DEFAULT_BRANCH = origin/master
+
 .PHONY: common caspa mosto update serve links
 
 all: update serve
 
 update: submodules links
 
+%-update:
+	cd $* ; git fetch --prune ; git checkout ${MBC_DEFAULT_BRANCH}
+
 submodules: common caspa mosto
 
-common: common/package.json common/node_modules
+common: common-update common/package.json common/node_modules
 
 %/node_modules:
 	cd $*; npm install;
 
-caspa: caspa/package.json
-mosto: mosto/package.json
+caspa: caspa-update caspa/package.json
+mosto: mosto-update mosto/package.json
 
 %/package.json:
 	git submodule update --recursive --init $@
@@ -46,7 +51,7 @@ caspa-common: common caspa/node_modules/mbc-common
 	ln -sf ${PWD}/common ${PWD}/$*/node_modules/mbc-common
 	cd $*; npm install;
 
-%-serve: links submodules
+%-serve:
 	@cd $*; make ${MBC_VARS} serve
 
 serve: mosto-serve caspa-serve
