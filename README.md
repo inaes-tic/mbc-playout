@@ -1,4 +1,4 @@
-# MBC Playout {mlt edition} #
+# MBC Playout {mlt edition}
 
 This project, sponsored by the National Institute of Asociativism and Social
 Economy of the Argentinian Government (INAES: Instututo Nacional de
@@ -8,44 +8,61 @@ an HTML5 UI to the melted playout server.
 It initially targets cooperatives, of all sizes, and is thought as a
 collaborative playout programation plateform from the ground up.
 
-# requirements #
+## Components
 
-+ gettext
+### mbc-caspa
+
+Caspa is the HTML5 UI. It will let you manage the media files, search and
+organize them in playlists, schedule the broadcast and manage the configuration.
+
+### mbc-mosto
+
+Mosto is the playout core. Binded to Caspa, will check and apply it's changes 
+to the melted server playlist.
+
+### melted
+
+Melted is the broadcast server. It's responsible for consuming the media files in the
+order that Mosto commanded, and broadcast them through the configured output device.
+
+## Requirements
+
+### gettext
 
 ```shell
    apt-get install gettext 
 ```
 
-+ npm
+### npm
 
 ```shell
    apt-get install npm  
 ```
-+ node > 0.6.4
+### node > 0.6.4
 
 ```shell
    apt-get install nodejs
 ```
 
-+ mongodb
+### mongodb
 
 ```shell
    apt-get install mongodb
 ```
 
-+ melt libraries (if you don't have melted installed)
+### melt libraries (if you don't have melted installed)
 
 ```shell
    apt-get install ffmpeg melt libmlt-dev libmlt++-dev
 ```
 
-+ alltoogethernow
+### alltoogethernow
 
 ```shell
    sudo apt-get install gettext npm nodejs mongodb ffmpeg melt libmlt-dev libmlt++-dev
 ```
 
-# Installing #
+## Installing
 
 cloning this module and runing make should install all required submodules,
 npm install, and get a server working on http://localhost:3000
@@ -55,7 +72,7 @@ npm install, and get a server working on http://localhost:3000
    cd mbc-playout
    make
 ```
-# History #
+## History
 MBC Playout started, a long long time ago, as a fork of 'Media Cellar',
 that was heavily based on [Node Cellar](http://nodecellar.coenraets.org) by @coenraets
 
