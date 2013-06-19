@@ -17,7 +17,7 @@ organize them in playlists, schedule the broadcast and manage the configuration.
 
 ### mbc-mosto
 
-Mosto is the playout core. Binded to Caspa, will check and apply it's changes 
+Mosto is the playout core. Binded to Caspa, will check and apply it's changes
 to the melted server playlist.
 
 ### melted
@@ -30,19 +30,21 @@ order that Mosto commanded, and broadcast them through the configured output dev
 ### gettext
 
 ```shell
-   apt-get install gettext 
+   apt-get install gettext
 ```
 
 ### npm
 
 ```shell
-   apt-get install npm  
+   apt-get install npm
 ```
-### node > 0.6.4
+### node > 0.8
 
 ```shell
    apt-get install nodejs
 ```
+
+Check it on [joyent wiki](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
 
 ### mongodb
 
@@ -50,16 +52,22 @@ order that Mosto commanded, and broadcast them through the configured output dev
    apt-get install mongodb
 ```
 
+### redis
+
+```shell
+   apt-get install redis-server
+```
+
 ### melt libraries (if you don't have melted installed)
 
 ```shell
-   apt-get install ffmpeg melt libmlt-dev libmlt++-dev
+   apt-get install ffmpeg melt libmlt-dev libmlt++-dev pkg-config
 ```
 
 ### alltoogethernow
 
 ```shell
-   sudo apt-get install gettext npm nodejs mongodb ffmpeg melt libmlt-dev libmlt++-dev
+   sudo apt-get install gettext npm nodejs mongodb redis-server ffmpeg melt libmlt-dev libmlt++-dev pkg-config
 ```
 
 ## Installing
