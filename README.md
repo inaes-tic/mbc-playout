@@ -58,10 +58,15 @@ Check it on [joyent wiki](https://github.com/joyent/node/wiki/Installing-Node.js
    apt-get install redis-server
 ```
 
+### ffmpeg
+```shell
+   apt-get install ffmpeg
+```
+
 ### melt libraries (if you don't have melted installed)
 
 ```shell
-   apt-get install ffmpeg melt libmlt-dev libmlt++-dev pkg-config
+   apt-get install melt libmlt-dev libmlt++-dev pkg-config
 ```
 
 ### alltoogethernow
