@@ -33,11 +33,6 @@ order that Mosto commanded, and broadcast them through the configured output dev
    apt-get install gettext
 ```
 
-### npm
-
-```shell
-   apt-get install npm
-```
 ### node > 0.8
 
 ```shell
@@ -45,6 +40,12 @@ order that Mosto commanded, and broadcast them through the configured output dev
 ```
 
 Check it on [joyent wiki](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
+
+### npm
+
+```shell
+   apt-get install npm
+```
 
 ### mongodb
 
